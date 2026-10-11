@@ -4,64 +4,70 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="MovieMate Privacy Policy: how MovieMate handles personal and device data.">
-  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#0F172A">
+  <meta name="color-scheme" content="dark">
   <title>MovieMate Privacy Policy</title>
   <style>
     :root {
-      color-scheme: light dark;
-      --background: #f4f6fa;
-      --surface: #fff;
-      --text: #182230;
-      --muted: #536174;
-      --link: #0759b5;
-      --border: #d8dee8;
-      --accent: #e9a900;
-    }
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --background: #101722;
-        --surface: #182333;
-        --text: #f2f5fa;
-        --muted: #bdc8d8;
-        --link: #8bbcff;
-        --border: #354256;
-        --accent: #ffc107;
-      }
+      color-scheme: dark;
+      --background: #0f172a;
+      --surface: #1e293b;
+      --surface-raised: #26354a;
+      --text: #f2f5fa;
+      --muted: #bdc8d8;
+      --link: #ffd15c;
+      --border: #3b4b61;
+      --accent: #ffc107;
     }
     * { box-sizing: border-box; }
     body {
       margin: 0;
-      padding: 2rem 1rem;
+      padding: clamp(1rem, 4vw, 3rem) 1rem;
       background: var(--background);
       color: var(--text);
       font: 16px/1.7 system-ui, -apple-system, "Segoe UI", sans-serif;
+      background-image: radial-gradient(ellipse at top, #263b57 0, var(--background) 60%);
+      background-attachment: fixed;
     }
     main {
       width: min(100%, 800px);
       margin: 0 auto;
       padding: clamp(1.25rem, 5vw, 3.5rem);
-      background: var(--surface);
+      background: color-mix(in srgb, var(--surface) 96%, transparent);
       border: 1px solid var(--border);
-      border-radius: 16px;
-      box-shadow: 0 12px 40px rgb(0 0 0 / 8%);
+      border-radius: 20px;
+      box-shadow: 0 20px 60px rgb(0 0 0 / 32%);
     }
     h1, h2 { line-height: 1.25; }
-    h1 { margin: 0 0 .5rem; font-size: clamp(2rem, 6vw, 2.7rem); }
-    h2 { margin: 2rem 0 .6rem; font-size: 1.35rem; }
+    h1 {
+      margin: 0 0 .5rem;
+      color: #fff;
+      font-size: clamp(2rem, 6vw, 2.7rem);
+      letter-spacing: -.035em;
+    }
+    h2 {
+      margin: 2.25rem 0 .6rem;
+      padding-bottom: .45rem;
+      border-bottom: 1px solid var(--border);
+      color: var(--accent);
+      font-size: 1.35rem;
+    }
     p, ul { margin: .75rem 0; }
     li + li { margin-top: .7rem; }
-    a { color: var(--link); text-underline-offset: .15em; }
+    a { color: var(--link); text-underline-offset: .2em; }
+    a:hover { color: #ffe08a; }
+    a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
     .updated { color: var(--muted); margin-top: 0; }
     .notice {
       margin: 1.5rem 0;
       padding: 1rem 1.15rem;
       border-left: 4px solid var(--accent);
-      background: color-mix(in srgb, var(--accent) 12%, var(--surface));
-      border-radius: 4px;
+      background: color-mix(in srgb, var(--accent) 10%, var(--surface-raised));
+      border-radius: 0 10px 10px 0;
     }
     footer { margin-top: 2.5rem; padding-top: 1rem; border-top: 1px solid var(--border); color: var(--muted); }
     @media print {
-      body { padding: 0; background: #fff; color: #111; }
+      body { padding: 0; background: #fff; color: #111; background-image: none; }
       main { width: 100%; border: 0; box-shadow: none; padding: 0; }
       a { color: inherit; }
     }
@@ -86,6 +92,7 @@
       <li><strong>The Movie Database (TMDB):</strong> movie, person, recommendation, and streaming-provider searches, plus your selected discovery filters, are sent to TMDB's API. Movie details and images are loaded from TMDB. Requests include the app's TMDB API key. See <a href="https://www.themoviedb.org/privacy-policy">TMDB's privacy policy</a>.</li>
       <li><strong>YouTube:</strong> when you request a trailer, MovieMate searches YouTube using the film title and year. If you play a result, YouTube receives the usual information associated with viewing content through its app or website. See <a href="https://policies.google.com/privacy">Google's privacy policy</a>.</li>
       <li><strong>Apple iTunes Search:</strong> when you open soundtrack details, the film title is sent to Apple's search service to find songs and preview links. If you play a preview or open a track, Apple may receive the usual information associated with streaming or opening its service. See <a href="https://www.apple.com/legal/privacy/">Apple's privacy policy</a>.</li>
+      <li><strong>Email list provider:</strong> if you choose Subscribe or Unsubscribe in MovieMate's email-list form, the email address you enter and that action are sent to the CrumpyLabs mailing list endpoint hosted at Heart Internet. This is optional and is not needed to use the app. The current app sends this request over HTTP, not HTTPS, so the address is not encrypted in transit by that connection. Do not use this form until the endpoint is secured with HTTPS if you do not accept that risk. You can contact us to request removal from the list.</li>
       <li><strong>Android and other apps you choose:</strong> reminders are scheduled and displayed locally by Android. If you choose to add a film to a calendar, Android opens a calendar app with the film title, release date, and description for you to review and save. If you export or share information, Android opens the app you select and passes it the content or file you chose to share. Those apps and services handle information under their own policies.</li>
     </ul>
     <p>MovieMate does not send your watch history, ratings, notes, quotes, playlists, or yearly goal to TMDB, YouTube, Apple, or us. Network providers may receive ordinary connection data, such as your IP address, when your device connects to their services; their handling is governed by their privacy policies.</p>
@@ -99,15 +106,19 @@
 
     <h2>Retention and deletion</h2>
     <p>Your movie library and settings remain on your device until you delete them in the app, clear MovieMate's storage, or uninstall the app. Android device backups or exports may remain separately under your control. There is no MovieMate account to delete.</p>
+    <p>If you subscribe to the optional email list, the mailing-list provider retains your address according to its service and list settings until you unsubscribe or ask us to remove it. Contact us at <a href="mailto:deb@crumpy.co.uk">deb@crumpy.co.uk</a> for help with an email-list request.</p>
 
     <h2>Security</h2>
-    <p>MovieMate stores its library in app-private storage on your device and uses HTTPS for its TMDB, YouTube search, and Apple search requests. Data you export or pass to another app is subject to the security of that app and your device. </p>
+    <p>MovieMate stores its library in app-private storage on your device and uses HTTPS for its TMDB, YouTube search, and Apple search requests. Data you export or pass to another app is subject to the security of that app and your device. The optional email-list request currently uses HTTP as described above. No method of storage or transmission is completely secure.</p>
+
+    <h2>Children's privacy</h2>
+    <p>MovieMate is a general-audience film logging app and is not designed to collect personal information from children. It does not require an account. If you believe a child has provided an email address through the optional mailing-list form, contact us and we will help request its removal.</p>
 
     <h2>Changes to this policy</h2>
     <p>We may update this policy when MovieMate's features or data practices change. The effective date above indicates the latest revision. If our data practices change, we will update this policy and the app's applicable store disclosures.</p>
 
     <h2>Contact</h2>
-    <p><strong>Debra Crump / Crumpy Labs</strong><br>Email: <a href="mailto:moviemate@crumpylabs.co.uk">moviemate@crumpylabs.co.uk</a></p>
+    <p><strong>Crumpy Labs</strong><br>Email: <a href="mailto:moviemate@crumpylabs.co.uk">moviemate@crumpylabs.co.uk</a></p>
 
     <footer>MovieMate Privacy Policy · Crumpy Labs</footer>
   </main>
